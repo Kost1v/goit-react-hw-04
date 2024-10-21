@@ -1,0 +1,28 @@
+.gallery {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.listItem {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 15px;
+  max-width: 400px;
+  overflow: hidden;
+  object-fit: cover;
+  max-height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+.itemTitle {
+  margin: 0;
+}
+.itemDescription {
+  margin: 0;
+} */
