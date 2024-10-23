@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 import css from "./SearchBar.module.css";
 
@@ -8,15 +8,9 @@ const INITIAL_VALUES = {
 };
 
 const SearchBar = ({ onSubmit }) => {
-  const notify = () =>
-    toast("Good Job!", {
-      icon: "👏",
-    });
-
   const handleSubmit = (values, actions) => {
     if (values.searchTerm === "") {
-      notify();
-      alert("Enter value")
+      toast.error("Please enter a search term");
     } else {
       onSubmit(values.searchTerm);
       actions.resetForm();
@@ -35,6 +29,7 @@ const SearchBar = ({ onSubmit }) => {
           />
         </label>
         <button type="submit">Search photo</button>
+        <Toaster />
       </Form>
     </Formik>
   );

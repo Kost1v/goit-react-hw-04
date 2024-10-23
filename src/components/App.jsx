@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-
 import axios from "axios";
-import toast from "react-hot-toast";
 
 import SearchBar from "./SearchBar/SearchBar";
 import ImageGallery from "./ImageGallery/ImageGallery";
@@ -51,11 +49,6 @@ const App = () => {
     setSelectedPhoto(null);
   };
 
-  const notify = () =>
-    toast("Good Job!", {
-      icon: "👏",
-    });
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -67,10 +60,6 @@ const App = () => {
         );
         setTotalPage(data.total_pages);
 
-        if (data.total_pages > 0) {
-          notify();
-        }
-
         setPhotos((prevPhotos) => {
           if (currentPage === 1) setPhotos(data.results);
 
@@ -80,7 +69,6 @@ const App = () => {
         setError(error.message);
       } finally {
         setIsLoading(false);
-        setError(false);
       }
     };
 
